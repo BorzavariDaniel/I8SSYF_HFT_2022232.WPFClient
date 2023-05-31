@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using I8SSYF_HFT_2021221.Logic;
 
 namespace I8SSYF_HFT_2021221.WpfClient.Editors.EngineEdior
 {
