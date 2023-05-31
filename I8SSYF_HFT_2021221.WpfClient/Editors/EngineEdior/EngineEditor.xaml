@@ -17,7 +17,7 @@
         <ListBox Grid.Column="0" ItemsSource="{Binding Engines}" SelectedItem="{Binding SelectedEngine}" Background="LightBlue">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Name}"/>
+                    <Label Content="{Binding EngineId}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

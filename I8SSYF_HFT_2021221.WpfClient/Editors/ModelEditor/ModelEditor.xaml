@@ -17,7 +17,7 @@
         <ListBox Grid.Column="0" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}" Background="LightBlue">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Shape}"/>
+                    <Label Content="{Binding ModelId}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
