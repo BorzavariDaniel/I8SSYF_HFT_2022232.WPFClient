@@ -49,7 +49,6 @@ async function getdata() {
         .then(x => x.json())
         .then(y => {
             model = y;
-            console.log(car);
             display();
         });
 }
