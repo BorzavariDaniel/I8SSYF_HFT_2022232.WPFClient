@@ -71,6 +71,7 @@ namespace I8SSYF_HFT_2021221.Endpoint
                 .AllowCredentials()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
                 .WithOrigins("http://localhost:55925"));
 
             app.UseRouting();

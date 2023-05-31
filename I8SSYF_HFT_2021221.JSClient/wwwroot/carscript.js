@@ -89,7 +89,7 @@ function create() {
         name: name,
         price: price,
     }
-    fetch('http://localhost:64139/Car', {
+    fetch('http://localhost:64139/Car/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
@@ -121,7 +121,7 @@ function update() {
         name: name,
         price: price
     }
-    fetch('http://localhost:64139/Car', {
+    fetch('http://localhost:64139/Car/', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(

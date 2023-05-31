@@ -59,11 +59,10 @@ function display() {
     engine.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
             "<tr><td>" + t.fuel + "</td><td>"
-            + t.fuel + "</td><td>" +
             + t.numOfCylinders + "</td><td>" +
-            + t.id + "</td><td>" +
-            `<button type="button" onclick="remove(${t.id})">Delete</button>` +
-            `<button type="button" onclick="showupdate(${t.id})">Update</button>`
+            + t.engineId + "</td><td>" +
+            `<button type="button" onclick="remove(${t.engineId})">Delete</button>` +
+            `<button type="button" onclick="showupdate(${t.engineId})">Update</button>`
             + "</td></tr>";
     });
 }

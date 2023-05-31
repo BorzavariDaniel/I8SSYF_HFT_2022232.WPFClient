@@ -58,10 +58,9 @@ function display() {
     model.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
             "<tr><td>" + t.shape + "</td><td>"
-            + t.shape + "</td><td>" +
-            + t.id + "</td><td>" +
-            `<button type="button" onclick="remove(${t.id})">Delete</button>` +
-            `<button type="button" onclick="showupdate(${t.id})">Update</button>`
+            + t.modelId + "</td><td>" +
+            `<button type="button" onclick="remove(${t.modelId})">Delete</button>` +
+            `<button type="button" onclick="showupdate(${t.modelId})">Update</button>`
             + "</td></tr>";
     });
 }
@@ -116,7 +115,7 @@ function update() {
     let shape = document.getElementById('modeltoupdate').value;
     let id = parseInt(document.getElementById('id').value);
     const updatedModel = {
-        id: carIdToUpdate,
+        id: modelIdToUpdate,
         shape: shape,
         id: id,
     }
@@ -145,7 +144,7 @@ function update() {
 }
 function showupdate(id) {
     document.getElementById('updateformdiv').style.display = 'flex';
-    document.getElementById('modeltoupdate').value = car.find(x => x['id'] == id)['shape'];
-    document.getElementById('id').value = parseInt(car.find(x => x['id'] == id)['id']);
+    document.getElementById('modeltoupdate').value = model.find(x => x['id'] == id)['shape'];
+    document.getElementById('id').value = parseInt(model.find(x => x['id'] == id)['id']);
     modelIdToUpdate = id;
 }
