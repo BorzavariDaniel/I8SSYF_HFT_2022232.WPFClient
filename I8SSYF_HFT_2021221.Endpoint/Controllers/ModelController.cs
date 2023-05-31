@@ -1,6 +1,9 @@
-﻿using I8SSYF_HFT_2021221.Logic;
+﻿using I8SSYF_HFT_2021221.Endpoint.Services;
+using I8SSYF_HFT_2021221.Logic;
 using I8SSYF_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +18,12 @@ namespace I8SSYF_HFT_2021221.Endpoint.Controllers
     public class ModelController : ControllerBase
     {
         IModelLogic modelLogic;
+        IHubContext<SignalRHub> hub;
 
-        public ModelController(IModelLogic modelLogic)
+        public ModelController(IModelLogic modelLogic, IHubContext<SignalRHub> hub)
         {
             this.modelLogic = modelLogic;
+            this.hub = hub;
         }
 
         // GET: /model
@@ -40,6 +45,7 @@ namespace I8SSYF_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Model value)
         {
             modelLogic.Create(value);
+            this.hub.Clients.All.SendAsync("ModelCreated", value);
         }
 
         // PUT /model/id
@@ -47,13 +53,16 @@ namespace I8SSYF_HFT_2021221.Endpoint.Controllers
         public void Put(int id, [FromBody] Model value)
         {
             modelLogic.Update(value);
+            this.hub.Clients.All.SendAsync("ModelUpdated", value);
         }
 
         // DELETE /model/id
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var modelToDelete = this.modelLogic.Read(id);
             modelLogic.Delete(id);
+            this.hub.Clients.All.SendAsync("ModelDeleted", modelToDelete);
         }
     }
 }

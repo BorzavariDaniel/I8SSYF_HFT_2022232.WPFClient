@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{EF1B75
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I8SSYF_HFT_2021221.WpfClient", "I8SSYF_HFT_2021221.WpfClient\I8SSYF_HFT_2021221.WpfClient.csproj", "{7E32C1B8-B47D-4A97-B92F-6F8760F8B60A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "I8SSYF_HFT_2021221.WpfClient", "I8SSYF_HFT_2021221.WpfClient\I8SSYF_HFT_2021221.WpfClient.csproj", "{7E32C1B8-B47D-4A97-B92F-6F8760F8B60A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -52,7 +52,7 @@ namespace I8SSYF_HFT_2021221.WpfClient.Editors.EngineEdior
         {
             if (!IsInDesignMode)
             {
-                Engines = new RestCollection<Engine>("http://localhost:64139/", "Engine");
+                Engines = new RestCollection<Engine>("http://localhost:64139/", "Engine", "hub");
                 CreateEngineCommand = new RelayCommand(() =>
                 {
                     Engines.Add(new Engine()

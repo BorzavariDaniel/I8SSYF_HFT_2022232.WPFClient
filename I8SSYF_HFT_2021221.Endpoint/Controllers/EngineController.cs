@@ -1,6 +1,9 @@
-﻿using I8SSYF_HFT_2021221.Logic;
+﻿using I8SSYF_HFT_2021221.Endpoint.Services;
+using I8SSYF_HFT_2021221.Logic;
 using I8SSYF_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +18,12 @@ namespace I8SSYF_HFT_2021221.Endpoint.Controllers
     public class EngineController : ControllerBase
     {
         IEngineLogic engineLogic;
+        IHubContext<SignalRHub> hub;
 
-        public EngineController(IEngineLogic engineLogic)
+        public EngineController(IEngineLogic engineLogic, IHubContext<SignalRHub> hub)
         {
             this.engineLogic = engineLogic;
+            this.hub = hub;
         }
 
         // GET: /engine
@@ -40,6 +45,7 @@ namespace I8SSYF_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Engine value)
         {
             engineLogic.Create(value);
+            this.hub.Clients.All.SendAsync("EngineCreated", value);
         }
 
         // PUT /engine/id
@@ -47,13 +53,16 @@ namespace I8SSYF_HFT_2021221.Endpoint.Controllers
         public void Put(int id, [FromBody] Engine value)
         {
             engineLogic.Update(value);
+            this.hub.Clients.All.SendAsync("EngineUpdated", value);
         }
 
         // DELETE /engine/id
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var engineToDelete = this.engineLogic.Read(id);
             engineLogic.Delete(id);
+            this.hub.Clients.All.SendAsync("EngineDeleted", engineToDelete);
         }
     }
 }

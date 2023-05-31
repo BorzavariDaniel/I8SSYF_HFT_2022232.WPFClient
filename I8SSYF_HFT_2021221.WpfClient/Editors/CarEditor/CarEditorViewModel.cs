@@ -52,7 +52,7 @@ namespace I8SSYF_HFT_2021221.WpfClient.Editors.CarEditor
         {
             if (!IsInDesignMode)
             {
-                Cars = new RestCollection<Car>("http://localhost:64139/", "Car");
+                Cars = new RestCollection<Car>("http://localhost:64139/", "Car", "hub");
                 CreateCarCommand = new RelayCommand(() =>
                 {
                     Cars.Add(new Car()

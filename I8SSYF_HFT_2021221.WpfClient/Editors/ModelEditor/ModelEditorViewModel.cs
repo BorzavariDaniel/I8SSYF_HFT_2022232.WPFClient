@@ -51,7 +51,7 @@ namespace I8SSYF_HFT_2021221.WpfClient.Editors.ModelEditor
         {
             if (!IsInDesignMode)
             {
-                Models = new RestCollection<Model>("http://localhost:64139/", "Model");
+                Models = new RestCollection<Model>("http://localhost:64139/", "Model", "hub");
                 CreateModelCommand = new RelayCommand(() =>
                 {
                     Models.Add(new Model()

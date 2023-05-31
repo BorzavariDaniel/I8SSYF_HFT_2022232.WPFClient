@@ -1,4 +1,5 @@
 using I8SSYF_HFT_2021221.Data;
+using I8SSYF_HFT_2021221.Endpoint.Services;
 using I8SSYF_HFT_2021221.Logic;
 using I8SSYF_HFT_2021221.Models;
 using I8SSYF_HFT_2021221.Repository;
@@ -41,6 +42,8 @@ namespace I8SSYF_HFT_2021221.Endpoint
             services.AddTransient<IModelLogic, ModelLogic>();
             services.AddTransient<IEngineLogic, EngineLogic>();
 
+            services.AddSignalR();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -71,6 +74,7 @@ namespace I8SSYF_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
