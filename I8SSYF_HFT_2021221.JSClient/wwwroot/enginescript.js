@@ -2,7 +2,7 @@
 let connection = null;
 getdata();
 setupSignalR();
-let modelIdToUpdate = -1;
+let engineIdToUpdate = -1;
 
 
 function setupSignalR() {
