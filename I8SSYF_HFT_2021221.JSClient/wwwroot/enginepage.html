@@ -2,9 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title> Engine UI</title>
+    <link rel="stylesheet" href="Style.css" />
 </head>
 <body>
+    <h1>Engine list</h1>
 
+    <div id="formdiv">
+        <label>Engine name</label>
+        <input type="text" id="name" />
+        <label>Fuel</label>
+        <input type="text" id="fuel" />
+        <button type="button" onclick="create()">Add engine</button>
+    </div>
+    <div id="updateformdiv">
+        <label>Engine name</label>
+        <input type="text" id="enginetoupdate" />
+        <label>Fuel</label>
+        <input type="text" id="fuel" />
+        <button type="button" onclick="update()">Update engine</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Fuel</th>
+                <th>NumOfCylinders</th>
+                <th>ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="enginescript.js"></script>
 </body>
 </html>

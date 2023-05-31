@@ -2,9 +2,40 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title> Model UI</title>
+    <link rel="stylesheet" href="Style.css" />
 </head>
 <body>
+    <h1>Car list</h1>
 
+    <div id="formdiv">
+        <label>Model name</label>
+        <input type="text" id="name" />
+        <label>Shape</label>
+        <input type="text" id="shape" />
+        <button type="button" onclick="create()">Add model</button>
+    </div>
+    <div id="updateformdiv">
+        <label>Model name</label>
+        <input type="text" id="modeltoupdate" />
+        <label>Shape</label>
+        <input type="text" id="shape" />
+        <button type="button" onclick="update()">Update model</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Shape</th>
+                <th>ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="modelscript.js"></script>
 </body>
 </html>
