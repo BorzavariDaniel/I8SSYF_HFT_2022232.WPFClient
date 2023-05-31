@@ -68,7 +68,7 @@ function display() {
 }
 
 function remove(id) {
-    fetch('http://localhost:64139/Engine' + id, {
+    fetch('http://localhost:64139/Engine/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -83,26 +83,14 @@ function remove(id) {
 }
 
 function create() {
-    let fuel = document.getElementById('fuel').value;
-    let numOfCylinders = parseInt(document.getElementById('numOfCylinders').value);
-    const newEngine = {
-        fuel: fuel,
-        numOfCylinders: numOfCylinders,
-    }
-    fetch('http://localhost:64139/Engine', {
+    let jsfuel = document.getElementById('enginefuel').value;
+    let jsnumOfCylinders = parseInt(document.getElementById('enginenumOfCylinder').value);
+
+    fetch('http://localhost:64139/Engine/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            newEngine, (key, value) => {
-                if (key == "fuel") {
-                    return parseInt(value);
-                }
-                else {
-                    return value
-                }
-            }
-        )
-
+            { fuel: jsfuel, numOfCylinders: jsnumOfCylinders }),
     })
         .then(response => response)
         .then(data => {
@@ -114,27 +102,14 @@ function create() {
 
 
 function update() {
-    let fuel = document.getElementById('enginetoupdate').value;
-    let numOfCylinders = parseInt(document.getElementById('fuel').value);
-    const updatedEngine = {
-        id: engineIdToUpdate,
-        fuel: fuel,
-        numOfCylinders: numOfCylinders
-    }
-    fetch('http://localhost:64139/Engine', {
+    let jsfuel = document.getElementById('enginefueltoupdate').value;
+    let jsnumOfCylinders = parseInt(document.getElementById('numOfCylinderstoupdate').value);
+
+    fetch('http://localhost:64139/Engine/', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            updatedEngine, (key, value) => {
-                if (key == "fuel" || key == "id") {
-                    return parseInt(value);
-                }
-                else {
-                    return value
-                }
-            }
-        )
-
+            { fuel: jsfuel, numOfCylinders: jsnumOfCylinders, engineId: engineIdToUpdate }),
     })
         .then(response => response)
         .then(data => {
@@ -142,11 +117,11 @@ function update() {
             getdata();
         })
         .catch((error) => { console.error('Error:', error); });
-
 }
+
 function showupdate(id) {
     document.getElementById('updateformdiv').style.display = 'flex';
-    document.getElementById('enginetoupdate').value = engine.find(x => x['id'] == id)['fuel'];
-    document.getElementById('numOfCylinders').value = parseInt(engine.find(x => x['id'] == id)['numOfCylinders']);
+    document.getElementById('enginefueltoupdate').value = engine.find(x => x['engineId'] == id)['fuel'];
+    document.getElementById('numOfCylinderstoupdate').value = parseInt(engine.find(x => x['engineId'] == id)['numOfCylinders']);
     engineIdToUpdate = id;
 }

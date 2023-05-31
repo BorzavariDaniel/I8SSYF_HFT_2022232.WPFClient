@@ -83,27 +83,15 @@ function remove(id) {
 }
 
 function create() {
-    let name = document.getElementById('name').value;
-    let price = parseInt(document.getElementById('price').value);
-    const newCar = {
-        name: name,
-        price: price,
-    }
+    let jsname = document.getElementById('carname').value;
+    let jsprice = parseInt(document.getElementById('carprice').value);
+
     fetch('http://localhost:64139/Car/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            newCar, (key, value) => {
-                if (key == "price") {
-                    return parseInt(value);
-                }
-                else {
-                    return value
-                }
-            }
-        )
-
-    })
+            { name: jsname, price: jsprice }),
+        })
         .then(response => response)
         .then(data => {
             console.log('Success:', data);
@@ -144,6 +132,7 @@ function update() {
         .catch((error) => { console.error('Error:', error); });
 
 }
+
 function showupdate(id) {
     document.getElementById('updateformdiv').style.display = 'flex';
     document.getElementById('cartoupdate').value = cars.find(x => x['id'] == id)['name'];

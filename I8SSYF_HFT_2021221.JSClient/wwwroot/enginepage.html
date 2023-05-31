@@ -9,17 +9,17 @@
     <h1>Engine list</h1>
 
     <div id="formdiv">
-        <label>Engine name</label>
-        <input type="text" id="name" />
-        <label>Fuel</label>
-        <input type="text" id="fuel" />
+        <label>Engine fuel</label>
+        <input type="text" id="enginefuel" />
+        <label>NumberOfCylinders</label>
+        <input type="text" id="enginenumOfCylinder" />
         <button type="button" onclick="create()">Add engine</button>
     </div>
     <div id="updateformdiv">
-        <label>Engine name</label>
-        <input type="text" id="enginetoupdate" />
-        <label>Fuel</label>
-        <input type="text" id="fuel" />
+        <label>Engine fuel</label>
+        <input type="text" id="enginefueltoupdate" />
+        <label>NumberOfCylinders</label>
+        <input type="text" id="numOfCylinderstoupdate" />
         <button type="button" onclick="update()">Update engine</button>
     </div>
 
@@ -37,6 +37,6 @@
     </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
-    <script src="enginescript.js"></script>
+    <script src="enginescript.js?v=1"></script>
 </body>
 </html>

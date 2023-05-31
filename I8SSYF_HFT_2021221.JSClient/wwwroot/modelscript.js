@@ -66,7 +66,7 @@ function display() {
 }
 
 function remove(id) {
-    fetch('http://localhost:64139/Model' + id, {
+    fetch('http://localhost:64139/Model/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -81,26 +81,13 @@ function remove(id) {
 }
 
 function create() {
-    let shape = document.getElementById('shape').value;
-    let id = parseInt(document.getElementById('id').value);
-    const newModel = {
-        shape: shape,
-        id: id,
-    }
-    fetch('http://localhost:64139/Model', {
+    let jsshape = document.getElementById('modelshape').value;
+
+    fetch('http://localhost:64139/Model/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            newModel, (key, value) => {
-                if (key == "shape") {
-                    return parseInt(value);
-                }
-                else {
-                    return value
-                }
-            }
-        )
-
+            { shape: jsshape }),
     })
         .then(response => response)
         .then(data => {
@@ -112,27 +99,13 @@ function create() {
 
 
 function update() {
-    let shape = document.getElementById('modeltoupdate').value;
-    let id = parseInt(document.getElementById('id').value);
-    const updatedModel = {
-        id: modelIdToUpdate,
-        shape: shape,
-        id: id,
-    }
-    fetch('http://localhost:64139/Model', {
+    let jsshape = document.getElementById('modelshapetoupdate').value;
+
+    fetch('http://localhost:64139/Model/', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            updatedModel, (key, value) => {
-                if (key == "shape" || key == "id") {
-                    return parseInt(value);
-                }
-                else {
-                    return value
-                }
-            }
-        )
-
+            { shape: jsshape, modelId: modelIdToUpdate }),
     })
         .then(response => response)
         .then(data => {
@@ -140,11 +113,10 @@ function update() {
             getdata();
         })
         .catch((error) => { console.error('Error:', error); });
-
 }
+
 function showupdate(id) {
     document.getElementById('updateformdiv').style.display = 'flex';
-    document.getElementById('modeltoupdate').value = model.find(x => x['id'] == id)['shape'];
-    document.getElementById('id').value = parseInt(model.find(x => x['id'] == id)['id']);
+    document.getElementById('modelshapetoupdate').value = model.find(x => x['modelId'] == id)['shape'];
     modelIdToUpdate = id;
 }

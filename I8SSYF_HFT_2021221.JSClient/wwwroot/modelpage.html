@@ -9,17 +9,13 @@
     <h1>Model list</h1>
 
     <div id="formdiv">
-        <label>Model name</label>
-        <input type="text" id="name" />
         <label>Shape</label>
-        <input type="text" id="shape" />
+        <input type="text" id="modelshape" />
         <button type="button" onclick="create()">Add model</button>
     </div>
     <div id="updateformdiv">
-        <label>Model name</label>
-        <input type="text" id="modeltoupdate" />
         <label>Shape</label>
-        <input type="text" id="shape" />
+        <input type="text" id="modelshapetoupdate" />
         <button type="button" onclick="update()">Update model</button>
     </div>
 
@@ -36,6 +32,6 @@
     </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
-    <script src="modelscript.js"></script>
+    <script src="modelscript.js?v=1"></script>
 </body>
 </html>
