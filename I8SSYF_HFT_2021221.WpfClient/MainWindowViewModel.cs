@@ -11,6 +11,7 @@ using System.Windows;
 using I8SSYF_HFT_2021221.WpfClient.Editors.CarEditor;
 using I8SSYF_HFT_2021221.WpfClient.Editors.EngineEdior;
 using I8SSYF_HFT_2021221.WpfClient.Editors.ModelEditor;
+using I8SSYF_HFT_2021221.WpfClient.Editors.NonCrudEditor;
 
 namespace I8SSYF_HFT_2021221.WpfClient
 {
@@ -19,6 +20,7 @@ namespace I8SSYF_HFT_2021221.WpfClient
         public ICommand CarCommand { get; set; }
         public ICommand EngineCommand { get; set; }
         public ICommand ModelCommand { get; set; }
+        public ICommand MethodCommand { get; set; }
         public static bool IsInDesignMode
         {
             get
@@ -35,6 +37,7 @@ namespace I8SSYF_HFT_2021221.WpfClient
                 CarCommand = new RelayCommand(() => new CarEditor().ShowDialog());
                 EngineCommand = new RelayCommand(() => new EngineEditor().ShowDialog());
                 ModelCommand = new RelayCommand(() => new ModelEditor().ShowDialog());
+                MethodCommand = new RelayCommand(() => new NonCrudWindow().ShowDialog());
             }
         }
     }

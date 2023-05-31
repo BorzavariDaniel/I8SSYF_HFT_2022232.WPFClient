@@ -1,4 +1,4 @@
-﻿let car = [];
+﻿let cars = [];
 let connection = null;
 getdata();
 setupSignalR();
@@ -48,7 +48,7 @@ async function getdata() {
     await fetch('http://localhost:64139/Car')
         .then(x => x.json())
         .then(y => {
-            car = y;
+            cars = y;
             console.log(car);
             display();
         });
@@ -56,7 +56,7 @@ async function getdata() {
 
 function display() {
     document.getElementById('resultarea').innerHTML = "";
-    car.forEach(t => {
+    cars.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
             "<tr><td>" + t.name + "</td><td>"
             + t.price + "</td><td>" +
@@ -68,7 +68,7 @@ function display() {
 }
 
 function remove(id) {
-    fetch('http://localhost:64139/Car' + id, {
+    fetch('http://localhost:64139/Car/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -89,7 +89,7 @@ function create() {
         name: name,
         price: price,
     }
-    fetch('http://localhost:64139/Car', {
+    fetch('http://localhost:64139/Car/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
@@ -121,7 +121,7 @@ function update() {
         name: name,
         price: price
     }
-    fetch('http://localhost:64139/Car', {
+    fetch('http://localhost:64139/Car/', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
@@ -146,7 +146,7 @@ function update() {
 }
 function showupdate(id) {
     document.getElementById('updateformdiv').style.display = 'flex';
-    document.getElementById('cartoupdate').value = engine.find(x => x['id'] == id)['name'];
-    document.getElementById('price').value = parseInt(engine.find(x => x['id'] == id)['price']);
+    document.getElementById('cartoupdate').value = cars.find(x => x['id'] == id)['name'];
+    document.getElementById('price').value = parseInt(cars.find(x => x['id'] == id)['price']);
     carIdToUpdate = id;
 }

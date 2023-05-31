@@ -1,0 +1,34 @@
+﻿<Window x:Class="I8SSYF_HFT_2021221.WpfClient.Editors.NonCrudEditor.NonCrudWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:I8SSYF_HFT_2021221.WpfClient.Editors.NonCrudEditor"
+        mc:Ignorable="d"
+        Title="NonCrudWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <ListBox Grid.Row="0" x:Name="listbox">
+            <Label Grid.Row="0" Content="AveragePriceByModels"/>
+        </ListBox>
+        <ListBox Grid.Row="1" x:Name="listbox2">
+            <Label Grid.Row="1" Content="CylindersByDescending"/>
+        </ListBox>
+        <ListBox Grid.Row="2" x:Name="listbox3">
+            <Label Grid.Row="2" Content="AverageNumberOfCylindersByModels"/>
+        </ListBox>
+        <ListBox Grid.Row="3" x:Name="listbox4">
+            <Label Grid.Row="3" Content="SumPriceByModels"/>
+        </ListBox>
+        <ListBox Grid.Row="4" x:Name="listbox5">
+            <Label Grid.Row="4" Content="CarCountByModels"/>
+        </ListBox>
+    </Grid>
+</Window>

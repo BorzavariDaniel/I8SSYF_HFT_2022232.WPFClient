@@ -14,9 +14,11 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Content="Car Editor" Margin="16,16,16,16" FontSize="35" Command="{Binding CarCommand}"/>
         <Button Grid.Row="1" Content="Model Editor" Margin="16,16,16,16" FontSize="35" Command="{Binding ModelCommand}"/>
         <Button Grid.Row="2" Content="Engine Editor" Margin="16,16,16,16" FontSize="35" Command="{Binding EngineCommand}"/>
+        <Button Grid.Row="3" Content="Methods" Margin="16,16,16,16" FontSize="35" Command="{Binding MethodCommand}"/>
     </Grid>
 </Window>
