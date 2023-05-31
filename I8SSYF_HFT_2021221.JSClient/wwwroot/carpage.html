@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Car UI</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+    <h1>Car list</h1>
+
+    <div id="formdiv">
+        <label>Car name</label>
+        <input type="text" id="name" />
+        <label>Price</label>
+        <input type="text" id="year" />
+        <button type="button" onclick="create()">Add car</button>
+    </div>
+    <div id="updateformdiv">
+        <label>Car name</label>
+        <input type="text" id="cartoupdate" />
+        <label>Price</label>
+        <input type="text" id="price" />
+        <button type="button" onclick="update()">Update car</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="carscript.js"></script>
+</body>
+</html>

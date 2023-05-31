@@ -34,7 +34,7 @@ namespace I8SSYF_HFT_2021221.WpfClient.Editors.CarEditor
                 OnPropertyChanged();
                 (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
             }
-        }
+    }
 
         public ICommand CreateCarCommand { get; set; }
         public ICommand DeleteCarCommand { get; set; }
